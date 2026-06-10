@@ -1,3 +1,5 @@
+<!-- فایل را با نام index.html ذخیره کن -->
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
@@ -6,201 +8,112 @@
 <title>بافت مو ملی</title>
 
 <style>
-  body{
+*{
     margin:0;
-    font-family:tahoma;
-    background:#ffc0cb;
-  }
+    padding:0;
+    box-sizing:border-box;
+    font-family:tahoma,sans-serif;
+}
 
-  header{
+body{
+    background:#ffd6e7;
+    color:#333;
+}
+
+header{
     text-align:center;
-    padding:20px;
-  }
+    padding:40px 20px;
+    background:#ff9fc6;
+    color:white;
+}
 
-  .profile{
-    width:110px;
-    height:110px;
+.profile{
+    width:180px;
+    height:180px;
     border-radius:50%;
     object-fit:cover;
-    border:4px solid white;
-  }
+    border:6px solid white;
+    margin-bottom:15px;
+}
 
-  h1{
-    margin:10px 0;
-  }
-
-  .grid{
+.gallery{
+    max-width:1300px;
+    margin:auto;
+    padding:30px;
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-    padding:15px;
-  }
+    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+    gap:20px;
+}
 
-  .card{
+.card{
     background:white;
-    border-radius:12px;
+    border-radius:15px;
     overflow:hidden;
     cursor:pointer;
-    box-shadow:0 3px 10px rgba(0,0,0,0.1);
-    transition:0.3s;
-  }
+}
 
-  .card:hover{
-    transform:scale(1.03);
-  }
-
-  .card img{
+.card img{
     width:100%;
-    height:120px;
+    height:250px;
     object-fit:cover;
-  }
+}
 
-  .card h3{
-    margin:8px;
-    font-size:14px;
-  }
-
-  .card p{
-    margin:0 8px 10px;
-    font-size:12px;
-    color:#444;
-  }
-
-  /* modal */
-  .modal{
-    display:none;
-    position:fixed;
-    top:0;right:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.6);
-  }
-
-  .modal-content{
-    background:white;
-    width:90%;
-    margin:50px auto;
-    padding:15px;
-    border-radius:12px;
-  }
-
-  .btn{
-    display:block;
+.price{
     text-align:center;
-    background:#25d366;
-    color:white;
-    padding:10px;
-    margin-top:10px;
-    border-radius:8px;
-    text-decoration:none;
-  }
-
-  .close{
-    float:left;
-    cursor:pointer;
-    font-size:18px;
-  }
+    color:#e91e63;
+    padding-bottom:15px;
+    font-weight:bold;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-  <img src="images/profile.jpg" class="profile">
-  <h1>بافت مو ملی 💖</h1>
+<img src="profile.jpg" class="profile">
+<h1>بافت مو ملی</h1>
+<p>انواع بافت مو و اکستنشن تخصصی</p>
 </header>
 
-<div class="grid" id="grid"></div>
+<div class="gallery">
 
-<!-- modal -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">✖</span>
-    <h2 id="title"></h2>
-    <p id="desc"></p>
-    <p id="price"></p>
-
-    <a class="btn" id="orderBtn" href="#">ثبت سفارش</a>
-  </div>
+<div class="card">
+<img src="mehre.jpg">
+<h3>بافت مهره</h3>
+<div class="price">150 تا 300 هزار تومان</div>
 </div>
 
-<script>
-const data = [
-{
-title:"بافت مهره",
-price:"150 تا 300 هزار",
-desc:"بافت با مهره های رنگی به صورت یک لاین روی مو",
-img:"images/1.jpg"
-},
-{
-title:"بافت خورشیدی",
-price:"300 هزار",
-desc:"مثل بافت هلندی ولی با تقسیم بندی متفاوت",
-img:"images/2.jpg"
-},
-{
-title:"بافت تل",
-price:"300 تا 350 هزار",
-desc:"تل فرق، تل یک طرف، تل خورشیدی با مهره و نخ",
-img:"images/3.jpg"
-},
-{
-title:"بافت سوسکی",
-price:"100 هزار",
-desc:"مدل ساده و شیک",
-img:"images/4.jpg"
-},
-{
-title:"اکستنشن بافت شاخه ای",
-price:"30 هزار تا 1200",
-desc:"بافت دور سر همراه امکان افزایش قد مو",
-img:"images/5.jpg"
-},
-{
-title:"بافت دندون موشی",
-price:"1200 هزار",
-desc:"مدل خاص و پرطرفدار",
-img:"images/6.jpg"
-},
-{
-title:"بافت کویین",
-price:"400 هزار",
-desc:"بافت سه بعدی تاج‌گونه مخصوص مراسم",
-img:"images/7.jpg"
-},
-{
-title:"بافت هلندی دیزاین دار",
-price:"150 هزار",
-desc:"با مهره، حلقه و نخ",
-img:"images/8.jpg"
-}
-];
+<div class="card">
+<img src="khorshidi.jpg">
+<h3>بافت خورشیدی</h3>
+<div class="price">300 هزار تومان</div>
+</div>
 
-const grid = document.getElementById("grid");
+<div class="card">
+<img src="tel.jpg">
+<h3>بافت تل</h3>
+<div class="price">300 تا 350 هزار تومان</div>
+</div>
 
-data.forEach((item,i)=>{
-  grid.innerHTML += `
-  <div class="card" onclick="openModal(${i})">
-    <img src="${item.img}">
-    <h3>${item.title}</h3>
-    <p>${item.price}</p>
-  </div>`;
-});
+<div class="card">
+<img src="soosaki.jpg">
+<h3>بافت سوسکی</h3>
+<div class="price">100 هزار تومان</div>
+</div>
 
-function openModal(i){
-  document.getElementById("modal").style.display="block";
-  document.getElementById("title").innerText=data[i].title;
-  document.getElementById("desc").innerText=data[i].desc;
-  document.getElementById("price").innerText="قیمت: "+data[i].price;
+<div class="card">
+<img src="extension.jpg">
+<h3>اکستنشن شاخه‌ای</h3>
+<div class="price">30 هزار تومان هر شاخه</div>
+</div>
 
-  document.getElementById("orderBtn").href=
-  "https://wa.me/989000000000?text=سلام سفارش "+data[i].title;
-}
+<div class="card">
+<img src="queen.jpg">
+<h3>بافت کویین</h3>
+<div class="price">400 هزار تومان</div>
+</div>
 
-function closeModal(){
-  document.getElementById("modal").style.display="none";
-}
-</script>
+</div>
 
 </body>
 </html>
