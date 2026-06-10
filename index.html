@@ -1,148 +1,206 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>بافت مو ملی</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+  body{
+    margin:0;
+    font-family:tahoma;
+    background:#ffc0cb;
+  }
 
+  header{
+    text-align:center;
+    padding:20px;
+  }
+
+  .profile{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid white;
+  }
+
+  h1{
+    margin:10px 0;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    padding:15px;
+  }
+
+  .card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    cursor:pointer;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+  }
+
+  .card:hover{
+    transform:scale(1.03);
+  }
+
+  .card img{
+    width:100%;
+    height:120px;
+    object-fit:cover;
+  }
+
+  .card h3{
+    margin:8px;
+    font-size:14px;
+  }
+
+  .card p{
+    margin:0 8px 10px;
+    font-size:12px;
+    color:#444;
+  }
+
+  /* modal */
+  .modal{
+    display:none;
+    position:fixed;
+    top:0;right:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+  }
+
+  .modal-content{
+    background:white;
+    width:90%;
+    margin:50px auto;
+    padding:15px;
+    border-radius:12px;
+  }
+
+  .btn{
+    display:block;
+    text-align:center;
+    background:#25d366;
+    color:white;
+    padding:10px;
+    margin-top:10px;
+    border-radius:8px;
+    text-decoration:none;
+  }
+
+  .close{
+    float:left;
+    cursor:pointer;
+    font-size:18px;
+  }
+</style>
 </head>
 
 <body>
 
 <header>
-
-<img src="images/profile.jpg" class="profile">
-
-<h1>بافت مو ملی</h1>
-
-<p class="subtitle">
-
-انواع بافت مو • ژورنالی • مجلسی • عروس
-
-</p>
-
+  <img src="images/profile.jpg" class="profile">
+  <h1>بافت مو ملی 💖</h1>
 </header>
 
-<section class="gallery">
+<div class="grid" id="grid"></div>
 
-<div class="grid" id="gallery"></div>
-
-</section>
-
+<!-- modal -->
 <div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">✖</span>
+    <h2 id="title"></h2>
+    <p id="desc"></p>
+    <p id="price"></p>
 
-<button class="close-btn" onclick="closeModal()">
-
-✕
-
-</button>
-
-<div class="modal-content">
-
-<img id="modalImage">
-
-<div class="modal-details">
-
-<h2 id="modalTitle"></h2>
-
-<p id="modalDescription"></p>
-
-<p class="modal-price" id="modalPrice"></p>
-
-<button class="order-btn" onclick="showOrder()">
-
-ثبت سفارش
-
-</button>
-
-<div class="order-box" id="orderBox">
-
-<h3>
-
-راه های ارتباطی
-
-</h3>
-
-<div class="contact-item">
-
-<p>
-
-📞 شماره تماس
-
-</p>
-
-<span>
-
-+989199029625
-
-</span>
-
-<button onclick="copyText('+989199029625')">
-
-کپی شماره
-
-</button>
-
+    <a class="btn" id="orderBtn" href="#">ثبت سفارش</a>
+  </div>
 </div>
 
-<div class="contact-item">
+<script>
+const data = [
+{
+title:"بافت مهره",
+price:"150 تا 300 هزار",
+desc:"بافت با مهره های رنگی به صورت یک لاین روی مو",
+img:"images/1.jpg"
+},
+{
+title:"بافت خورشیدی",
+price:"300 هزار",
+desc:"مثل بافت هلندی ولی با تقسیم بندی متفاوت",
+img:"images/2.jpg"
+},
+{
+title:"بافت تل",
+price:"300 تا 350 هزار",
+desc:"تل فرق، تل یک طرف، تل خورشیدی با مهره و نخ",
+img:"images/3.jpg"
+},
+{
+title:"بافت سوسکی",
+price:"100 هزار",
+desc:"مدل ساده و شیک",
+img:"images/4.jpg"
+},
+{
+title:"اکستنشن بافت شاخه ای",
+price:"30 هزار تا 1200",
+desc:"بافت دور سر همراه امکان افزایش قد مو",
+img:"images/5.jpg"
+},
+{
+title:"بافت دندون موشی",
+price:"1200 هزار",
+desc:"مدل خاص و پرطرفدار",
+img:"images/6.jpg"
+},
+{
+title:"بافت کویین",
+price:"400 هزار",
+desc:"بافت سه بعدی تاج‌گونه مخصوص مراسم",
+img:"images/7.jpg"
+},
+{
+title:"بافت هلندی دیزاین دار",
+price:"150 هزار",
+desc:"با مهره، حلقه و نخ",
+img:"images/8.jpg"
+}
+];
 
-<p>
+const grid = document.getElementById("grid");
 
-💬 روبیکا
+data.forEach((item,i)=>{
+  grid.innerHTML += `
+  <div class="card" onclick="openModal(${i})">
+    <img src="${item.img}">
+    <h3>${item.title}</h3>
+    <p>${item.price}</p>
+  </div>`;
+});
 
-</p>
+function openModal(i){
+  document.getElementById("modal").style.display="block";
+  document.getElementById("title").innerText=data[i].title;
+  document.getElementById("desc").innerText=data[i].desc;
+  document.getElementById("price").innerText="قیمت: "+data[i].price;
 
-<span>
+  document.getElementById("orderBtn").href=
+  "https://wa.me/989000000000?text=سلام سفارش "+data[i].title;
+}
 
-@M_farhadi_84
-
-</span>
-
-<button onclick="copyText('@M_farhadi_84')">
-
-کپی آیدی
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<footer>
-
-<div class="footer-box">
-
-<h3>
-
-بافت مو ملی
-
-</h3>
-
-<p>
-
-ارائه انواع بافت مو حرفه ای
-
-</p>
-
-</div>
-
-</footer>
-
-<script src="script.js"></script>
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+</script>
 
 </body>
-
 </html>
