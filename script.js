@@ -10,7 +10,7 @@ description:"بافت مهره با مهره های رنگی و جذاب که ب
 {
 name:"بافت خورشیدی",
 price:"300 هزار تومان",
-image:"images/khorshidi.jpg",
+image:"khorshidi.jpg",
 description:"مدلی مشابه بافت هلندی اما با تقسیم بندی متفاوت و حرفه ای که ظاهر زیبایی روی مو ایجاد می‌کند."
 },
 
@@ -101,7 +101,7 @@ description:"مدل های خاص و ژورنالی مناسب عکاسی، جش
 {
 name:"بافت مکزیکی",
 price:"1,500,000 تومان",
-image:"images/mexici.jpg",
+image:"mexici.jpg",
 description:"نوعی بافت آفریقایی با اشکال هندسی خاص مانند مربع، مثلث و لوزی. قابل اجرا با موهای طبیعی یا اضافه."
 },
 
@@ -132,7 +132,7 @@ const gallery = document.getElementById("gallery");
 
 services.forEach(item => {
 
-gallery.innerHTML += `
+gallery.innerHTML += 
 
 <div class="card" onclick='openModal(${JSON.stringify(item)})'>
 
@@ -140,7 +140,7 @@ gallery.innerHTML += `
 
 </div>
 
-`;
+;
 
 });
 
@@ -190,4 +190,4 @@ modal.style.display = "none";
 
 }
 
-}
+  }
