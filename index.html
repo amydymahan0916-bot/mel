@@ -1,97 +1,25 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<!DOCTYPE html>  <html lang="fa" dir="rtl">  <head>  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>بافت مو ملی</title>  <link rel="stylesheet" href="style.css">  </head>  <body>  <header>  <img src="images/profile.jpg" class="profile">  <h1>بافت مو ملی</h1>  <p class="subtitle">  انواع بافت مو • ژورنالی • مجلسی • عروس
 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>بافت مو ملی</title>
-<link rel="stylesheet" href="style.css">
+</p>  </header>  <section class="gallery">  <div class="grid" id="gallery"></div>  </section>  <div class="modal" id="modal">  <button class="close-btn" onclick="closeModal()">  ✕
 
-<style>
-/* فقط برای اینکه کارت‌ها درست دیده بشن */
-.grid{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  padding: 20px;
-}
+</button>  <div class="modal-content">  <img id="modalImage">  <div class="modal-details">  <h2 id="modalTitle"></h2>  <p id="modalDescription"></p>  <p class="modal-price" id="modalPrice"></p>  <button class="order-btn" onclick="showOrder()">  ثبت سفارش
 
-.card{
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
+</button>  <div class="order-box" id="orderBox">  <h3>  راه های ارتباطی
 
-.card img{
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  cursor: pointer;
-}
+</h3>  <div class="contact-item">  <p>  📞 شماره تماس
 
-.card h3{
-  margin: 10px 0;
-  font-size: 14px;
-}
-</style>
+</p>  <span>  +989199029625
 
-</head>
+</span>  <button onclick="copyText('+989199029625')">  کپی شماره
 
-<body>
+</button>  </div>  <div class="contact-item">  <p>  💬 روبیکا
 
-<header>
-  <img src="images/profile.jpg" class="profile">
-  <h1>بافت مو ملی</h1>
-  <p class="subtitle">انواع بافت مو • ژورنالی • مجلسی • عروس</p>
-</header>
+</p>  <span>  @M_farhadi_84
 
-<section class="gallery">
-  <div class="grid" id="gallery"></div>
-</section>
+</span>  <button onclick="copyText('@M_farhadi_84')">  کپی آیدی
 
-<!-- مودال -->
-<div class="modal" id="modal">
-  <button class="close-btn" onclick="closeModal()">✕</button>
+</button>  </div>  </div>  </div>  </div>  </div>  <footer>  <div class="footer-box">  <h3>  بافت مو ملی
 
-  <div class="modal-content">
-    <img id="modalImage">
+</h3>  <p>  ارائه انواع بافت مو حرفه ای
 
-    <div class="modal-details">
-      <h2 id="modalTitle"></h2>
-      <p id="modalDescription"></p>
-
-      <button class="order-btn" onclick="showOrder()">ثبت سفارش</button>
-
-      <div class="order-box" id="orderBox">
-        <h3>راه های ارتباطی</h3>
-
-        <div class="contact-item">
-          <p>📞 شماره تماس</p>
-          <span>+989199029625</span>
-          <button onclick="copyText('+989199029625')">کپی شماره</button>
-        </div>
-
-        <div class="contact-item">
-          <p>💬 روبیکا</p>
-          <span>@M_farhadi_84</span>
-          <button onclick="copyText('@M_farhadi_84')">کپی آیدی</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<footer>
-  <div class="footer-box">
-    <h3>بافت مو ملی</h3>
-    <p>ارائه انواع بافت مو حرفه ای</p>
-  </div>
-</footer>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+</p>  </div>  </footer>  <script src="script.js"></script>  </body>  </html>
