@@ -1,25 +1,165 @@
-<!DOCTYPE html>  <html lang="fa" dir="rtl">  <head>  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>بافت مو ملی</title>  <link rel="stylesheet" href="style.css">  </head>  <body>  <header>  <img src="images/profile.jpg" class="profile">  <h1>بافت مو ملی</h1>  <p class="subtitle">  انواع بافت مو • ژورنالی • مجلسی • عروس
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 
-</p>  </header>  <section class="gallery">  <div class="grid" id="gallery"></div>  </section>  <div class="modal" id="modal">  <button class="close-btn" onclick="closeModal()">  ✕
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بافت مو ملی</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-</button>  <div class="modal-content">  <img id="modalImage">  <div class="modal-details">  <h2 id="modalTitle"></h2>  <p id="modalDescription"></p>  <p class="modal-price" id="modalPrice"></p>  <button class="order-btn" onclick="showOrder()">  ثبت سفارش
+<body>
 
-</button>  <div class="order-box" id="orderBox">  <h3>  راه های ارتباطی
+  <header>
+    <img src="images/profile.jpg" class="profile">
+    <h1>بافت مو ملی</h1>
+    <p class="subtitle">
+      انواع بافت مو • ژورنالی • مجلسی • عروس
+    </p>
+  </header>
 
-</h3>  <div class="contact-item">  <p>  📞 شماره تماس
+  <!-- 🔥 گالری کامل -->
+  <section class="gallery">
+    <div class="grid">
 
-</p>  <span>  +989199029625
+      <div class="card">
+        <img src="images/mehre.jpg" alt="بافت مهره">
+        <h3>بافت مهره</h3>
+      </div>
 
-</span>  <button onclick="copyText('+989199029625')">  کپی شماره
+      <div class="card">
+        <img src="images/khorshidi.jpg" alt="بافت خورشیدی">
+        <h3>بافت خورشیدی</h3>
+      </div>
 
-</button>  </div>  <div class="contact-item">  <p>  💬 روبیکا
+      <div class="card">
+        <img src="images/tel.jpg" alt="بافت تل">
+        <h3>بافت تل</h3>
+      </div>
 
-</p>  <span>  @M_farhadi_84
+      <div class="card">
+        <img src="images/soosaki.jpg" alt="بافت سوسکی">
+        <h3>بافت سوسکی</h3>
+      </div>
 
-</span>  <button onclick="copyText('@M_farhadi_84')">  کپی آیدی
+      <div class="card">
+        <img src="images/extension.jpg" alt="اکستنشن شاخه‌ای">
+        <h3>اکستنشن شاخه‌ای</h3>
+      </div>
 
-</button>  </div>  </div>  </div>  </div>  </div>  <footer>  <div class="footer-box">  <h3>  بافت مو ملی
+      <div class="card">
+        <img src="images/dandoon.jpg" alt="بافت دندون موشی">
+        <h3>بافت دندون موشی</h3>
+      </div>
 
-</h3>  <p>  ارائه انواع بافت مو حرفه ای
+      <div class="card">
+        <img src="images/queen.jpg" alt="بافت کویین">
+        <h3>بافت کویین</h3>
+      </div>
 
-</p>  </div>  </footer>  <script src="script.js"></script>  </body>  </html>
+      <div class="card">
+        <img src="images/holandi.jpg" alt="بافت هلندی">
+        <h3>بافت هلندی</h3>
+      </div>
+
+      <div class="card">
+        <img src="images/kafsari.jpg" alt="بافت کف سری">
+        <h3>بافت کف سری</h3>
+      </div>
+
+      <div class="card">
+        <img src="images/holandi-shol.jpg" alt="بافت هلندی شل">
+        <h3>بافت هلندی شل</h3>
+      </div>
+
+      <div class="card">
+        <img src="images/abshari.jpg" alt="بافت آبشاری">
+        <h3>بافت آبشاری</h3>
+      </div>
+
+      <div class="card">
+        <img src="images/holandi-kerli.jpg" alt="بافت هلندی شل + کرلی">
+        <h3>بافت هلندی شل + کرلی</h3>
+      </div>
+
+      <div class="card">
+        <img src="images/abshari-kerli.jpg" alt="بافت آبشاری + کرلی">
+        <h3>بافت آبشاری + کرلی</h3>
+      </div>
+
+      <div class="card">
+        <img src="images/journal.jpg" alt="بافت ژورنالی">
+        <h3>بافت ژورنالی</h3>
+      </div>
+
+      <div class="card">
+        <img src="images/mexici.jpg" alt="بافت مکزیکی">
+        <h3>بافت مکزیکی</h3>
+      </div>
+
+      <div class="card">
+        <img src="images/spiral.jpg" alt="بافت اسپیرال">
+        <h3>بافت اسپیرال</h3>
+      </div>
+
+      <div class="card">
+        <img src="images/afro.jpg" alt="بافت افرو">
+        <h3>بافت افرو</h3>
+      </div>
+
+      <div class="card">
+        <img src="images/dreadlock.jpg" alt="بافت دردلاک">
+        <h3>بافت دردلاک</h3>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 🔥 مودال -->
+  <div class="modal" id="modal">
+    <button class="close-btn" onclick="closeModal()">✕</button>
+
+    <div class="modal-content">
+      <img id="modalImage">
+
+      <div class="modal-details">
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+        <p class="modal-price" id="modalPrice"></p>
+
+        <button class="order-btn" onclick="showOrder()">
+          ثبت سفارش
+        </button>
+
+        <div class="order-box" id="orderBox">
+          <h3>راه های ارتباطی</h3>
+
+          <div class="contact-item">
+            <p>📞 شماره تماس</p>
+            <span>+989199029625</span>
+            <button onclick="copyText('+989199029625')">کپی شماره</button>
+          </div>
+
+          <div class="contact-item">
+            <p>💬 روبیکا</p>
+            <span>@M_farhadi_84</span>
+            <button onclick="copyText('@M_farhadi_84')">کپی آیدی</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-box">
+      <h3>بافت مو ملی</h3>
+      <p>ارائه انواع بافت مو حرفه ای</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+
+  </html>
