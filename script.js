@@ -138,6 +138,10 @@ gallery.innerHTML += `
 
 <img src="${item.image}" alt="${item.name}">
 
+<div class="card-title">
+${item.name}
+</div>
+
 </div>
 
 `;
@@ -151,14 +155,6 @@ localStorage.setItem(
 JSON.stringify(services[index])
 );
 
-window.location.href = "service.html";
-
-}
-
-function copyText(text){
-
-navigator.clipboard.writeText(text);
-
-alert("کپی شد ✅");
+window.location.href="service.html";
 
 }
