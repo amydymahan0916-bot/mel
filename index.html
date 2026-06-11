@@ -1,133 +1,74 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>بافت مو ملی</title>
 
-<style>
-body{
-  margin:0;
-  font-family:tahoma;
-  background:#f5f5f5;
-}
-
-/* کل گالری */
-#gallery{
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-  padding:20px;
-}
-
-/* هر ردیف 3 تایی */
-.row{
-  display:flex;
-  gap:20px;
-}
-
-/* کارت‌ها */
-.card{
-  flex:1;
-  background:#fff;
-  border-radius:15px;
-  overflow:hidden;
-  cursor:pointer;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-5px);
-}
-
-.card img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-}
-
-.card-title{
-  padding:10px;
-  font-weight:bold;
-  text-align:center;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<h2 style="text-align:center;margin-top:20px;">نمونه کارها</h2>
+<header class="hero">
 
-<div id="gallery"></div>
+<img src="profile.jpg" class="profile">
 
-<script>
-const services = [
-{
-name:"بافت مهره",
-price:"150 تا 300 هزار تومان",
-image:"mehre.jpg",
-description:"بافت مهره با مهره های رنگی و جذاب"
-},
-{
-name:"بافت خورشیدی",
-price:"300 هزار تومان",
-image:"khorshidi.jpg",
-description:"مدل حرفه ای خورشیدی"
-},
-{
-name:"بافت تل",
-price:"300 تا 350 هزار تومان",
-image:"tel.jpg",
-description:"مدل تل متنوع"
-},
-{
-name:"بافت سوسکی",
-price:"100 هزار تومان",
-image:"soosaki.jpg",
-description:"مدل ساده"
-},
-{
-name:"اکستنشن شاخه ای",
-price:"30 هزار تومان",
-image:"extension.jpg",
-description:"افزایش حجم مو"
-},
-{
-name:"بافت دندون موشی",
-price:"1,200,000 تومان",
-image:"dandoon.jpg",
-description:"مدل خاص"
-}
-];
+<h1>بافت مو ملی</h1>
 
-const gallery = document.getElementById("gallery");
+<p class="subtitle">
+انواع بافت مو ژورنالی، مجلسی و آفریقایی
+</p>
 
-let row;
+<a href="#gallery" class="hero-btn">
+مشاهده نمونه کارها
+</a>
 
-services.forEach((item, index) => {
+</header>
 
-  if (index % 3 === 0) {
-    row = document.createElement("div");
-    row.className = "row";
-    gallery.appendChild(row);
-  }
+<section class="about">
 
-  row.innerHTML += `
-    <div class="card" onclick="openService(${index})">
-      <img src="${item.image}" alt="${item.name}">
-      <div class="card-title">${item.name}</div>
-    </div>
-  `;
+<h2>✨ چرا بافت مو ملی؟</h2>
 
-});
+<p>
+اجرای انواع بافت مو با جدیدترین مدل‌های روز، متریال باکیفیت و طراحی اختصاصی.
+</p>
 
-function openService(index){
-  localStorage.setItem("selectedService", JSON.stringify(services[index]));
-  window.location.href = "service.html";
-}
-</script>
+</section>
+
+<section class="gallery">
+
+<h2 class="section-title">
+نمونه کارها
+</h2>
+
+<!-- فقط این div برای گرید -->
+<div class="grid" id="gallery"></div>
+
+</section>
+
+<footer>
+
+<h3>بافت مو ملی</h3>
+
+<p>
+برای رزرو نوبت روی نمونه کار موردنظر کلیک کنید.
+</p>
+
+</footer>
+
+<a class="floating-btn"
+href="javascript:void(0)"
+onclick="window.scrollTo({top:0,behavior:'smooth'})">
+
+⬆️
+
+</a>
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
