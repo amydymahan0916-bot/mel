@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>جزئیات بافت</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:tahoma;
+}
+
+body{
+background:linear-gradient(135deg,#ffd6e7,#ffc2dc);
+padding:20px;
+}
+
+.back-btn{
+display:inline-block;
+padding:10px 15px;
+background:white;
+border-radius:12px;
+text-decoration:none;
+color:#d63384;
+font-weight:bold;
+margin-bottom:15px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+.main-image{
+width:100%;
+height:450px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.box{
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+h1{
+color:#d63384;
+margin-bottom:15px;
+}
+
+.price{
+font-size:24px;
+font-weight:bold;
+color:#e91e63;
+margin:15px 0;
+}
+
+.order-btn{
+width:100%;
+padding:15px;
+border:none;
+border-radius:15px;
+background:#e91e63;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+.contact{
+display:none;
+margin-top:20px;
+background:#ffe4ef;
+padding:15px;
+border-radius:15px;
+}
+
+.copy-btn{
+width:100%;
+padding:10px;
+margin-top:10px;
+border:none;
+border-radius:10px;
+background:#d63384;
+color:white;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+
+.main-image{
+height:280px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="index.html" class="back-btn">
+← بازگشت
+</a>
+
+<img id="serviceImage" class="main-image">
+
+<div class="box">
+
+<h1 id="serviceTitle"></h1>
+
+<p id="serviceDescription"></p>
+
+<p class="price" id="servicePrice"></p>
+
+<button class="order-btn" onclick="showContact()">
+ثبت سفارش
+</button>
+
+<div class="contact" id="contact">
+
+<h3>راه های ارتباطی</h3>
+
+<br>
+
+<p>📞 شماره تماس:</p>
+<p>+989199029625</p>
+
+<button class="copy-btn"
+onclick="copyText('+989199029625')">
+کپی شماره
+</button>
+
+<br><br>
+
+<p>💬 روبیکا:</p>
+<p>@M_farhadi_84</p>
+
+<button class="copy-btn"
+onclick="copyText('@M_farhadi_84')">
+کپی آیدی
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const item = JSON.parse(
+localStorage.getItem("selectedService")
+);
+
+if(item){
+
+document.getElementById("serviceTitle").innerText =
+item.name;
+
+document.getElementById("serviceDescription").innerText =
+item.description;
+
+document.getElementById("servicePrice").innerText =
+item.price;
+
+document.getElementById("serviceImage").src =
+item.image;
+
+}
+
+function showContact(){
+
+document.getElementById("contact").style.display =
+"block";
+
+}
+
+function copyText(text){
+
+navigator.clipboard.writeText(text);
+
+alert("کپی شد ✅");
+
+}
+
+</script>
+
+</body>
+  </html>
